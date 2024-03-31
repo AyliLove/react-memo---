@@ -22,10 +22,7 @@ export function EndGameModal({ isWon, gameDurationSeconds, gameDurationMinutes, 
       getLeaders()
         .then(({ leaders }) => {
           console.log(leaders);
-          // let leader = data.leaders;
-          leaders = leaders.sort(function (a, b) {
-            return a.time - b.time;
-          });
+          leaders.sort((a, b) => a.time - b.time);
           if (leaders[leaders.length - 1].time > fullGameTime || leaders.length < 10) {
             setPlayerLeader(true);
           }
@@ -44,7 +41,7 @@ export function EndGameModal({ isWon, gameDurationSeconds, gameDurationMinutes, 
       time: fullGameTime,
     })
       .then(newLeaders => {
-        // console.log(newLeaders);
+        console.log(newLeaders);
       })
       .catch(() => alert("Ошибка добавления пользователя"));
   };
